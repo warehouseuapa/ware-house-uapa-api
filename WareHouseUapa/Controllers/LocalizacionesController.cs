@@ -14,7 +14,7 @@ namespace WareHouseUapa.Controllers
 {
     public class LocalizacionesController : ApiController
     {
-        private warehouseuapaEntities1 db = new warehouseuapaEntities1();
+        private warehouseuapaEntitiesAzure db = new warehouseuapaEntitiesAzure();
 
         // GET: api/Localizaciones
         public IQueryable<localizaciones> Getlocalizaciones()

@@ -12,7 +12,7 @@ namespace WareHouseUapa.Controllers
 {
     public class ProductosGraficoController : Controller
     {
-        private warehouseuapaEntities1 db = new warehouseuapaEntities1();
+        private warehouseuapaEntitiesAzure db = new warehouseuapaEntitiesAzure();
 
         // GET: ProductosGrafico
         public ActionResult Index()

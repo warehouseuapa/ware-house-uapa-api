@@ -14,7 +14,7 @@ namespace WareHouseUapa.Controllers
 {
     public class UsuariosController : ApiController
     {
-        private warehouseuapaEntities1 db = new warehouseuapaEntities1();
+        private warehouseuapaEntitiesAzure db = new warehouseuapaEntitiesAzure();
 
         // GET: api/Usuarios
         public IQueryable<Usuarios> GetUsuarios()

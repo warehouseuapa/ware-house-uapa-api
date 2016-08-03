@@ -13,10 +13,10 @@ namespace WareHouseUapa.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class warehouseuapaEntities1 : DbContext
+    public partial class warehouseuapaEntitiesAzure : DbContext
     {
-        public warehouseuapaEntities1()
-            : base("name=warehouseuapaEntities1")
+        public warehouseuapaEntitiesAzure()
+            : base("name=warehouseuapaEntitiesAzure")
         {
         }
     
