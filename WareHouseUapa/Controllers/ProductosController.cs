@@ -24,9 +24,9 @@ namespace WareHouseUapa.Controllers
 
         // GET: api/Productos/5
         [ResponseType(typeof(Productos))]
-        public IHttpActionResult GetProductos(int id)
+        public IHttpActionResult GetProductos(string codigo)
         {
-            Productos productos = db.Productos.Find(id);
+            Productos productos = db.Productos.Find(codigo);
             if (productos == null)
             {
                 return NotFound();
