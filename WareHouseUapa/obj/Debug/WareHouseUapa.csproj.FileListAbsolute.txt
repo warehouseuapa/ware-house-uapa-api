@@ -87,3 +87,4 @@ c:\users\samuel\documents\visual studio 2015\Projects\WareHouseUapa\WareHouseUap
 c:\users\samuel\documents\visual studio 2015\Projects\WareHouseUapa\WareHouseUapa\bin\System.Web.Http.Owin.xml
 c:\users\samuel\documents\visual studio 2015\Projects\WareHouseUapa\WareHouseUapa\obj\Debug\WareHouseUapa.dll
 c:\users\samuel\documents\visual studio 2015\Projects\WareHouseUapa\WareHouseUapa\obj\Debug\WareHouseUapa.pdb
+C:\Users\Samuel\documents\visual studio 2015\Projects\WareHouseUapa\WareHouseUapa\obj\Debug\WareHouseUapa.csprojResolveAssemblyReference.cache

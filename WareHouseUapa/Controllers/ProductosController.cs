@@ -26,7 +26,7 @@ namespace WareHouseUapa.Controllers
         [ResponseType(typeof(Productos))]
         public IHttpActionResult GetProductos(string codigo)
         {
-            Productos productos = db.Productos.Find(codigo);
+            Productos productos = db.Productos.FirstOrDefault(p => p.codigo == codigo);
             if (productos == null)
             {
                 return NotFound();
