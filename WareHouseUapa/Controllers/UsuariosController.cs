@@ -24,9 +24,9 @@ namespace WareHouseUapa.Controllers
 
         // GET: api/Usuarios/5
         [ResponseType(typeof(Usuarios))]
-        public IHttpActionResult GetUsuarios(int id)
+        public IHttpActionResult GetUsuarios(string email, string contrasena)
         {
-            Usuarios usuarios = db.Usuarios.Find(id);
+            Usuarios usuarios = db.Usuarios.FirstOrDefault(p => p.email == email && p.contrasena == contrasena);
             if (usuarios == null)
             {
                 return NotFound();
