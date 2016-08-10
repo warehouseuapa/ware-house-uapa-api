@@ -1,20 +1,31 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
+using System.Web.Mvc;
 using WareHouseUapa.Models;
+using System.Web.Http;
 
 namespace WareHouseUapa.Controllers
 {
     public class ProductosController : ApiController
     {
         private warehouseuapaEntitiesAzure db = new warehouseuapaEntitiesAzure();
+
+        [System.Web.Http.Route("api/getProductByItemAndLocation")]
+        [System.Web.Http.HttpGet]
+        public IHttpActionResult getProductByItemAndLocation(string item, string location)
+        {
+            Productos productos = db.Productos.FirstOrDefault(p => p.codigo == item && p.localizacion == location);
+            if (productos == null)
+            {
+                return Json(new { codigo = 0, mensaje = "No se enctontro." });
+            }
+
+            return Ok(productos);
+        }
 
         // GET: api/Productos
         public IQueryable<Productos> GetProductos()
