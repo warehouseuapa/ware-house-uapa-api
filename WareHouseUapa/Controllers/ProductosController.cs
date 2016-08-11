@@ -27,6 +27,14 @@ namespace WareHouseUapa.Controllers
             return Ok(productos);
         }
 
+        [System.Web.Http.Route("api/getProductsByCodigo")]
+        [System.Web.Http.HttpGet]
+        public IQueryable<Productos> getProductsByCodigo(string codigo)
+        {
+           return  db.Productos.Where(p => p.codigo == codigo);
+            
+        }
+
         // GET: api/Productos
         public IQueryable<Productos> GetProductos()
         {
