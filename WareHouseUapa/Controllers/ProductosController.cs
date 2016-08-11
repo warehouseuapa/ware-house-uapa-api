@@ -21,7 +21,7 @@ namespace WareHouseUapa.Controllers
             Productos productos = db.Productos.FirstOrDefault(p => p.codigo == item && p.localizacion == location);
             if (productos == null)
             {
-                return Json(new { errodCode = 0, mensaje = "No se enctontro." });
+                return Json(new { errorCode = 0, mensaje = "No se enctontro." });
             }
 
             return Ok(productos);
