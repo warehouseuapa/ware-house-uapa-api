@@ -27,6 +27,13 @@ namespace WareHouseUapa.Controllers
             return Ok(productos);
         }
 
+        [System.Web.Http.Route("api/getProductByLocation")]
+        [System.Web.Http.HttpGet]
+        public IQueryable<Productos> getProductByLocation(string location)
+        {
+            return  db.Productos.Where(p => p.localizacion == location);
+        }
+
         [System.Web.Http.Route("api/getProductsByCodigo")]
         [System.Web.Http.HttpGet]
         public IQueryable<Productos> getProductsByCodigo(string codigo)
@@ -96,6 +103,13 @@ namespace WareHouseUapa.Controllers
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
+            }
+
+            var existe = db.Productos.Where(p => p.codigo == productos.codigo && p.localizacion == productos.localizacion);
+
+            if (existe.Count() > 0)
+            {
+                return Json(new { errorCode = 1, message = "Ya existe un producto con ese codigo en esa localizacion" });
             }
 
             db.Productos.Add(productos);
