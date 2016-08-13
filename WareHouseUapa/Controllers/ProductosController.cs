@@ -7,6 +7,8 @@ using System.Web.Http.Description;
 using System.Web.Mvc;
 using WareHouseUapa.Models;
 using System.Web.Http;
+using System;
+using System.Collections.Generic;
 
 namespace WareHouseUapa.Controllers
 {
@@ -42,10 +44,44 @@ namespace WareHouseUapa.Controllers
             
         }
 
+        [System.Web.Http.Route("api/getAllProducts")]
+        [System.Web.Http.HttpGet]
+        public List<Productos> getAllProducts()
+        {
+            List<Productos> prod = new List<Productos>();
+            IQueryable<Productos> all = db.Productos;
+            foreach(var producto in all)
+            {
+                var guardado = prod.Where(p => p.codigo == producto.codigo);
+                if (guardado.Count() > 0)
+                {
+                    //ya esta guardado
+                } else
+                {
+                    var repetido = all.Where(p => p.codigo == producto.codigo);
+                    var a = new Productos()
+                    {
+                        cantidad = 0,
+                        codigo = producto.codigo,
+                        precio = producto.precio,
+                        localizacion = producto.localizacion,
+                        id = producto.id,
+                        descripcion = producto.descripcion
+                    };
+                    foreach (var r in repetido)
+                    {
+                        a.cantidad = a.cantidad + r.cantidad;
+                    }
+                    prod.Add(a);
+                }
+            }
+            return prod;
+        }
+
         // GET: api/Productos
         public IQueryable<Productos> GetProductos()
         {
-            return db.Productos;
+            return db.Productos; 
         }
 
         // GET: api/Productos/5

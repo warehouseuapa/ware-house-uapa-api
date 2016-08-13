@@ -14,6 +14,20 @@ namespace WareHouseUapa.Models
     
     public partial class Productos
     {
+        public Productos(string codigo, int cantidad, string descripcion, int id, string localizacion, int precio)
+        {
+            this.codigo = codigo;
+            this.cantidad = cantidad;
+            this.descripcion = descripcion;
+            this.id = id;
+            this.localizacion = localizacion;
+            this.precio = precio;
+        }
+
+        public Productos()
+        {
+        }
+
         public int id { get; set; }
         public string codigo { get; set; }
         public string descripcion { get; set; }
